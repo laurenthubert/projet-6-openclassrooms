@@ -1,4 +1,3 @@
-
 const slides = [
 	{
 		"image":"slide1.jpg",
@@ -18,27 +17,20 @@ const slides = [
 	}
 ]
 
-
 const autreimage = ["slide1.jpg", "slide2.jpg", "slide3.jpg", "slide4.png" ]
 let imageactive = 0
 
-///////////////evenement
+///////////////image 
+
+
+
 document.getElementById('precedent').addEventListener('click', function() 
 {
 	 imageactive = imageactive -1
 	if (imageactive < 0)
 	imageactive =3
 document.getElementById('listeimage').src = "./assets/images/slideshow/" + autreimage[imageactive]
-////////////////////////////////////////////////////////////////////////////////////
-
-
-
 })
-
-
-
-
-
 
 document.getElementById("suivant").addEventListener("click", function() 
 {
@@ -48,16 +40,10 @@ document.getElementById("suivant").addEventListener("click", function()
 document.getElementById('listeimage').src = "./assets/images/slideshow/" + autreimage[imageactive]
 })
 
-///////////////image  
-//imageactive = imageactive -1
-//if (imageactive < 0)
-//imageactive =3
-//document.getElementById('listeimage').src = "./assets/images/slideshow/" + autreimage[imageactive]
-//
-//imageactive = imageactive + 1
-//if (imageactive > 3)
-//imageactive = 0
-//document.getElementById('listeimage').src = "./assets/images/slideshow/" + autreimage[imageactive]
 ///////////////bullet
+
+
+
+
 
 ///////////////texte
