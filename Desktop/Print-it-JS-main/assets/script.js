@@ -1,3 +1,4 @@
+////////////////////liste des constantes
 const slides = [
 	{
 		"image":"slide1.jpg",
@@ -16,34 +17,39 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+const bullets = document.querySelectorAll('.dot')
+const texteamodifier = banner.querySelector('p')
+const imagesvisible = document.getElementById('placeimagevisible')
 
-const autreimage = ["slide1.jpg", "slide2.jpg", "slide3.jpg", "slide4.png" ]
-let imageactive = 0
+////////////////////place du premier bullet visible de bullets
+let bulletactif = 0 
+function bulletselectionne() {
+	bullets.forEach((dot, bulletselectionne) => {
+		dot.classList.remove('dot_selected')
+		if (bulletselectionne === bulletactif) {
+			dot.classList.add('dot_selected')
+		}
+	})
+}
 
-///////////////image 
-
-
-
-document.getElementById('precedent').addEventListener('click', function() 
-{
-	 imageactive = imageactive -1
-	if (imageactive < 0)
-	imageactive =3
-document.getElementById('listeimage').src = "./assets/images/slideshow/" + autreimage[imageactive]
-})
-
-document.getElementById("suivant").addEventListener("click", function() 
-{
-	imageactive = imageactive + 1
-	if (imageactive > 3)
-	imageactive = 0
-document.getElementById('listeimage').src = "./assets/images/slideshow/" + autreimage[imageactive]
-})
-
-///////////////bullet
+////////////////////deplacement des bullets ,des images et changement de texte
 
 
+function precedente() {
+	bulletactif = (bulletactif - 1 + slides.length) % slides.length
+	imagesvisible.src = './assets/images/slideshow/' + slides[bulletactif].image
+	texteamodifier.innerHTML = slides[bulletactif].tagLine
+	bulletselectionne()
+}
+function suivante() {
+	bulletactif = (bulletactif + 1) % slides.length
+	imagesvisible.src = './assets/images/slideshow/' + slides[bulletactif].image
+	texteamodifier.innerHTML = slides[bulletactif].tagLine
+	bulletselectionne()
 
+}
 
+/////////////////////declenchement des evenements
 
-///////////////texte
+document.querySelector('.arrow_left').addEventListener('click', precedente)
+document.querySelector('.arrow_right').addEventListener('click', suivante)
