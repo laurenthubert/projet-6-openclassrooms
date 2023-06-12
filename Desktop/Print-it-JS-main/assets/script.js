@@ -62,4 +62,5 @@ document.querySelector(".arrow_left").addEventListener("click", precedente);
 document.querySelector(".arrow_right").addEventListener("click", suivante);
 ////////////////////ajout personnel/////////////////////////////////////////////////////////
 ////////////////////declanchement automatique
-setInterval("suivante(1)", 5000);
+setInterval("suivante(1)", 10000);
+
